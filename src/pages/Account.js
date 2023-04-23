@@ -24,7 +24,7 @@ const normFile = (e) => {
     return e?.fileList;
 };
 
-function LoginSignUp() {
+function Account() {
     // const [user, setUser] = useState(null)
     const [name, setName] = useState("")
     const [backLogin, setBackLogin] = useState(false)
@@ -174,8 +174,6 @@ function LoginSignUp() {
           setSignUpButton(false)
 
           dispatch(setUser(response.data));
-//           window.location.href = "/";
-// }
         //   localStorage.setItem("user", response.data);
         } catch (error) {
           console.log(error);
@@ -227,125 +225,9 @@ function LoginSignUp() {
                         
                     </>
                     :
-                    <>
-                        <Title style={{display: "flex", justifyContent:"center"}} level={2}>START AND PLAY WITH US</Title>
-                        <Divider style={{ borderColor: 'blue' }}>SignIn With</Divider>
-                        <Row style={{display: "flex", justifyContent:"center"}}>
-                            {/* <Col span={8}> */}
-                                <Icon icon="vaadin:google-plus-square" color="red" width="50" height="50" onClick={loginGoogle} />
-                            {/* </Col> */}
-                            {/* <Col span={8}>
-                                <Icon icon="uiw:facebook" color="blue" width="50" height="50" />
-                            </Col>
-                            <Col span={8}>
-                                <Icon icon="skill-icons:instagram" color="blue" width="50" height="50" />
-                            </Col> */}
-                        </Row>
-
-
-                        <Divider style={{ borderColor: 'blue' }}>OR</Divider>
-                        <Row>
-                            <Col span={12}><Form
-                                name="basic"
-                                labelCol={{ span: 8 }}
-                                wrapperCol={{ span: 16 }}
-                                style={{ maxWidth: 600 }}
-                                initialValues={{ remember: true }}
-                                onFinish={onLogIn}
-                                onFinishFailed={onFinishFailed}
-                                autoComplete="off"
-                            >
-                                <Form.Item
-                                    label="User Name"
-                                    name="username"
-                                    rules={[
-
-                                        {
-                                            required: true,
-                                            message: 'Please input your User Name!',
-                                        },
-                                    ]}
-
-                                >
-                                    <Input placeholder="Insert your User Name" />
-                                </Form.Item>
-
-                                <Form.Item
-                                    label="Password"
-                                    name="password"
-                                    rules={[{ required: true, message: 'Please input your password!' }]}
-                                >
-                                    <Input.Password placeholder="Insert your password" />
-                                </Form.Item>
-
-                                <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                                    <Checkbox>Remember me</Checkbox>
-                                </Form.Item>
-
-                                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                                    <Button type="primary" htmlType="submit">
-                                        Log In
-                                    </Button>
-                                </Form.Item>
-                            </Form></Col>
-                            <Col span={12}><Form
-                                name="basic"
-                                labelCol={{ span: 8 }}
-                                wrapperCol={{ span: 16 }}
-                                style={{ maxWidth: 600 }}
-                                initialValues={{ remember: true }}
-                                onFinish={onSignUp}
-                                onFinishFailed={onSignUpFailed}
-                                autoComplete="off"
-                            >
-                                <Form.Item
-                                    label="User Name"
-                                    name="username"
-                                    rules={[
-
-                                        {
-                                            required: true,
-                                            message: 'Please input your User Name!',
-                                        },
-                                    ]}
-                                >
-                                    <Input placeholder="Insert your User Name" />
-                                </Form.Item>
-
-                                <Form.Item
-                                    label="Password"
-                                    name="password"
-                                    rules={[{ required: true, message: 'Please input your password!' }]}
-                                >
-                                    <Input.Password placeholder="Insert your password" />
-                                </Form.Item>
-
-                                <Form.Item valuePropName="fileList"
-                                    getValueFromEvent={normFile}
-                                    label="Ảnh đại diện"
-                                    name="dragger"
-                                    rules={[{ required: true, message: 'Bạn chưa tải ảnh đại diện' }]}
-                                >
-                                    <Upload.Dragger name="files" action="/upload.do"  maxCount={1} accept=".jpg,.png,.gif">
-                                        <p className="ant-upload-drag-icon">
-                                            <Icon icon="line-md:upload-loop" color="green" width="50" height="50" />
-                                        </p>
-                                        <p className="ant-upload-text">Click vào hoặc kéo thả file ảnh vào đây để tải lên</p>
-                                    </Upload.Dragger>
-                                    {/* <input type = 'file' onChange={(event)=>{setImageUpLoad(event.target.files[0])}}/> */}
-
-                                </Form.Item>
-
-                                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                                    <Button type="primary" htmlType="submit" style={{ backgroundColor: 'green' }} disabled={signUpButton}>
-                                        Sign Up
-                                    </Button>
-                                </Form.Item>
-                            </Form></Col>
-                        </Row>
-                    </>
+                    <Spin/>
             }
         </Container>
     )
 }
-export default LoginSignUp;
+export default Account;

@@ -13,6 +13,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import LoginSignUp from '../pages/LoginSignUp';
 import LuckyDiceGame from '../pages/LuckyDiceGame';
+import Histories from '../pages/Histories';
 import Account from '../pages/Account';
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
@@ -32,27 +33,29 @@ export default function HeaderTab() {
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider', backgroundColor: 'pink' }}>
           {user !== null ? <TabList onChange={handleChange} aria-label="lab API tabs example" centered>
-            <Link to={"/"+user.username}>
-             <Avatar icon={<img src={user.avatar} alt='Avatar' />} /> 
-              </Link>
-            <Link to="/game">
+            <Tab label={
+              <Avatar icon={<img src={user.avatar} alt='Avatar' />} /> 
+            } value="1" > </Tab>
+            
+             
+            <Tab label="Lucky game" value="2">
               Lucky Dice Game
-              </Link>
-            <Link to="/history"><Tab label="Lịch Sử Chơi" value="3" /></Link>
+              </Tab>
+            <Tab label="Lịch Sử Chơi" value="3" />
           </TabList > :
-            <TabList onChange={handleChange} aria-label="lab API tabs example" centered>  <Link to="/">Đăng nhập</Link></TabList>
+            <TabList onChange={handleChange} aria-label="lab API tabs example" centered>  <Tab label="Đăng nhập" value="1">Đăng nhập</Tab></TabList>
           }
         </Box>
-        {/* <TabPanel value="1"> <LoginSignUp /> </TabPanel>
+        <TabPanel value="1"> <LoginSignUp /> </TabPanel>
         <TabPanel value="2"><LuckyDiceGame /></TabPanel>
-        <TabPanel value="3"></TabPanel> */}
+        <TabPanel value="3"><Histories/></TabPanel>
       </TabContext>
 
-<Routes>
-<Route path='/' element={<LoginSignUp />} />
+{/* <Routes> */}
+{/* <Route path='/' element={<LoginSignUp />} />
   <Route path='/:username' element={<Account />} />
   <Route path='/game' element={<LuckyDiceGame />} />
-</Routes>
+</Routes> */}
 
 
 
